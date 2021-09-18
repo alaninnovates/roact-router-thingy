@@ -7,9 +7,25 @@ interface routerProps {}
 
 const Router: Hooks.FC<routerProps> = (props, {}) => {
 	return (
-		<RoactRouter>
-			<Route path="/" exact component={App} />
-		</RoactRouter>
+		<>
+			<textlabel Size={new UDim2(0, 400, 0, 300)} Text={"Hello, Roact!"} />
+			<RoactRouter>
+				<Route
+					path="/"
+					exact
+					render={() => {
+						print("rendering app");
+						// return <App />;
+						return <textlabel Size={new UDim2(0, 400, 0, 300)} Text={"Hello, Roact-Router!"} />;
+						// return class extends Roact.Component {
+						// 	render() {
+						// 		return <textlabel Size={new UDim2(0, 400, 0, 300)} Text={"Hello, Roact!"} />;
+						// 	}
+						// };
+					}}
+				/>
+			</RoactRouter>
+		</>
 	);
 };
 
